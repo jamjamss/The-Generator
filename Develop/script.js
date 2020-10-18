@@ -33,7 +33,7 @@ function generatePassword() {
         }
     }
 
-    } if (lowerCase) {
+    if (lowerCase) {
         confirm("Do you want to include lower case letters?") 
 
        
@@ -56,6 +56,7 @@ function generatePassword() {
         alert("Please choose a new criteria");
     }if (lowerCase) {
         masterArry = masterArry.concat(lowerCase);
+
     }if (upperCase) {
         masterArry = masterArry.concat(upperCase);
     }if (numBers) {
@@ -68,11 +69,8 @@ function generatePassword() {
     let allPasswords = [];
 
     for (let i = 0; i < userInput; i++) {
-        allPasswords = masterArry[Math.floor(Math.random() * masterArry)];
-        allPasswords.push(masterArry);
-    
-   }  
-   return allPasswords.join("");
+       allPasswords = allPasswords + masterArry[Math.floor(Math.random () * masterArry.length)]; 
+    } return allPasswords;
 }
     
 
