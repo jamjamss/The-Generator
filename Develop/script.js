@@ -8,12 +8,12 @@ let masterArry = [];
 
 
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
+let generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-    var password = generatePassword();
-    var passwordText = document.querySelector("#password");
+    let password = generatePassword();
+    let passwordText = document.querySelector("#password");
 
     passwordText.value = password;
 
@@ -21,58 +21,57 @@ function writePassword() {
 
 function generatePassword() {
 
-    while (true) {
-        let userInput = prompt("How long would you like your password to contain?")
-        if (!userInput) {
-            alert("Please choose a character length of 8-128!");
-        } else if (userInput < 8 || userInput > 128) {
-            prompt("Please add a value higher than 8 or lower than 128");
 
-        } else {
-            break;
+    let userInput = prompt("How long would you like your password to contain?")
+
+    if (userInput < 8 || userInput > 128) {
+        prompt("Please add a value higher than 8 or lower than 128");
+
+    
+    }  else {
+
+        let confirmlowerCase = confirm("do you want lower case letters?"); {
+            console.log("confirm lower value: ", confirmlowerCase);
         }
-    }
+    
+        let confirmupperCase = confirm("Do you want upper case letters?"); {
+            console.log("confirm upper case value:", confirmupperCase)
+        }
 
-    if (lowerCase) {
-        confirm("Do you want to include lower case letters?") 
+        let confirmnumBers = confirm("Do you want to include a number?"); {
+            console.log("confirm numbers value:", confirmnumBers);
+        }
 
-       
-    } if (upperCase) {
-        confirm("Do you want to include upper case letters") 
-
-       
-
-    } if (numBers) {
-        confirm("Do you want include numbers?")
-
-       
-
-    } if (symBols) {
-     confirm("DO you want to include symbols?")
-
-       
-    } if (masterArry.length == 0) {
-
-        alert("Please choose a new criteria");
-    }if (lowerCase) {
-        masterArry = masterArry.concat(lowerCase);
-
-    }if (upperCase) {
+        let confirmsymBols = confirm("Do you want to include symbols?"); {
+            console.log("confirm symbols value:", confirmsymBols)
+        }
+        if (confirmlowerCase === false && confirmupperCase === false && confirmnumBers === false && confirmsymBols === false) {
+            event.preventDefault
+            
+    } 
+    
+      if (confirmupperCase) {
         masterArry = masterArry.concat(upperCase);
-    }if (numBers) {
+      }
+      if (confirmlowerCase) {
+        masterArry = masterArry.concat(lowerCase);
+      }
+      if (confirmnumBers) {
         masterArry = masterArry.concat(numBers);
-    } if (symBols) {
+      }
+      if (confirmsymBols) {
         masterArry = masterArry.concat(symBols);
     }
-   
+    }
 
     let allPasswords = [];
 
     for (let i = 0; i < userInput; i++) {
-       allPasswords = allPasswords + masterArry[Math.floor(Math.random () * masterArry.length)]; 
-    } return allPasswords;
+        allPasswords = allPasswords + masterArry[Math.floor(Math.random () * masterArry.length)]; 
+     } return allPasswords;
+
 }
-    
+
 
 
 
